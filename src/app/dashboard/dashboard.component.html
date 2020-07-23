@@ -1,0 +1,21 @@
+
+<div class="example-container" cdkDropListGroup>
+  <div cdkDropList [cdkDropListEnterPredicate]="enter" (cdkDropListDropped)="drop()" #placeholder></div>
+  <div cdkDropList *ngFor="let item of items; let i = index;"
+       [cdkDropListEnterPredicate]="enter" (cdkDropListDropped)="drop()">
+    <div cdkDrag class="example-box">
+      <ng-container [ngSwitch]="item">
+         <ng-container *ngSwitchDefault>
+          {{item}}
+        </ng-container>
+        <ng-container *ngSwitchCase="1">
+           <app-chart-one></app-chart-one>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+           <app-chart-two></app-chart-two>
+        </ng-container>
+       
+      </ng-container>
+  </div>
+</div> 
+
